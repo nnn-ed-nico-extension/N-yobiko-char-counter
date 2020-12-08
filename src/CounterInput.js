@@ -27,17 +27,16 @@ class CounterInput {
 	}
 
 	updateCounter () {
-		const length = this.getAnsLength(this.qustionText);
+		const max = this.getAnsLength(this.qustionText, this.answerElement.value);
 		this.disp.classList.remove('error', 'notice');
-		console.log(length)
-		if (length.type === 1) {
-			this.disp.classList.add(this.answerElement.value.length <= length.num ? 'notice' : 'error');
-		} else if (length.type === 2) {
-			this.disp.classList.add(((this.answerElement.value.length < (length.num+5)) && (this.answerElement.value.length > (length.num-5))) ? 'notice' : 'error');
-		} else if (length.type === 3) {
-			this.disp.classList.add(this.answerElement.value.length == length.num ? 'notice' : 'error')
+		if (max.type === 1) {
+			this.disp.classList.add(max.length <= max.num ? 'notice' : 'error');
+		} else if (max.type === 2) {
+			this.disp.classList.add(((max.length <= (max.num+10)) && (max.length >= (max.num-10))) ? 'notice' : 'error');
+		} else if (max.type === 3) {
+			this.disp.classList.add(max.length == max.num ? 'notice' : 'error')
 		}
-		this.disp.innerText = `${this.answerElement.value.length}${length.num != void 0?"/"+length.num:""}` ;
+		this.disp.innerText = `${max.length}${max.num != void 0?"/"+max.num:""}` ;
 	}
 
 	createCharCounterElement () {
@@ -46,11 +45,12 @@ class CounterInput {
 		return charCounter;
 	}
 
-	getAnsLength (text) {
+	getAnsLength (text, value) {
 		let template = {
 			num: void 0,
-			type: 0
-		}
+			type: 0,
+			length: value.length
+		};
 		if (/(\d+)字以内/.test(text)) {
 			template.num = text.match(/(\d+)字以内/m)[1];
 			template.type = 1;
@@ -59,9 +59,14 @@ class CounterInput {
 			template.type = 2;
 		} else if (/(\d+)文字/.test(text)) {
 			template.num = text.match(/(\d+)文字/m)[1];
-			template.type = 3
+			template.type = 3;
+		} else if (/(\d+)つ書/.test(text)) {
+			template.num = text.match(/(\d+)つ書/m)[1];
+			template.type = 3;
+			template.length = value.split(/[,\s\n　、。]+/).filter(v => v != '').length;
 		} else if (/(\d+)字/.test(text)) {
 			template.num = text.match(/(\d+)字/m)[1];
+			template.length = value.length;
 		}
 		if(template.num) template.num = Number(template.num);
 		return template;
