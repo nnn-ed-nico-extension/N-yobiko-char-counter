@@ -52,20 +52,20 @@ class CounterInput {
 			length: value.length
 		};
 		if (/(\d+)字以内/.test(text)) {
-			template.num = text.match(/(\d+)字以内/m)[1];
+			template.num = text.match(/([\d,]+)字以内/m)[1].replace(/,/g, '');
 			template.type = 1;
-		} else if (/(\d+)字程度/.test(text)) {
-			template.num = text.match(/(\d+)字程度/m)[1];
+		} else if (/([\d,]+)字程度/.test(text)) {
+			template.num = text.match(/([\d,]+)字程度/m)[1].replace(/,/g, '');
 			template.type = 2;
-		} else if (/(\d+)文字/.test(text)) {
-			template.num = text.match(/(\d+)文字/m)[1];
+		} else if (/([\d,]+)文字/.test(text)) {
+			template.num = text.match(/([\d,]+)文字/m)[1].replace(/,/g, '');
 			template.type = 3;
 		} else if (/(\d+)つ書/.test(text)) {
-			template.num = text.match(/(\d+)つ書/m)[1];
+			template.num = text.match(/([\d,]+)つ書/m)[1].replace(/,/g, '');
 			template.type = 3;
 			template.length = value.split(/[,\s\n　、。]+/).filter(v => v != '').length;
-		} else if (/(\d+)字/.test(text)) {
-			template.num = text.match(/(\d+)字/m)[1];
+		} else if (/([\d,]+)字/.test(text)) {
+			template.num = text.match(/([\d,]+)字/m)[1].replace(/,/g, '');
 			template.length = value.length;
 		}
 		if(template.num) template.num = Number(template.num);
