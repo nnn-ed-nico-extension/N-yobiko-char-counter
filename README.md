@@ -4,12 +4,12 @@ My Chrome Extension
 
 ## Features
 
-- Feature 1
-- Feature 2
+- N予備校のテストさいに文字数を出します。
+- いくつかのフォーマット形式に対応しています。
 
 ## Install
 
-[**Chrome** extension]() <!-- TODO: Add chrome extension link inside parenthesis -->
+[**Chrome** extension](https://chrome.google.com/webstore/detail/n-yobi-char-counter/cjgiegfjhnlfbgpcjeainnakegcopdhd?hl=ja&authuser=1) <!-- TODO: Add chrome extension link inside parenthesis -->
 
 ## Contribution
 
