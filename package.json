@@ -5,8 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service build --mode development --watch",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "watch": "webpack --mode=development --watch --config config/webpack.config.js"
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "bestzip": "^2.1.7",
