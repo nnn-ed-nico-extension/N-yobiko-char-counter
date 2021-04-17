@@ -1,13 +1,11 @@
 {
   "manifest_version": 2,
   "name": "__MSG_extName__",
-  "homepage_url": "http://localhost:8080/",
-  "description": "A Vue Browser Extension",
-  "default_locale": "en",
+  "homepage_url": "https://github.com/tsutoringo/N-yobiko-char-counter",
+  "description": "_MSG_extDesc",
+  "default_locale": "ja",
   "permissions": [
-    "activeTab",
-    "<all_urls>",
-    "*://*/*"
+    "storage"
   ],
   "icons": {
     "16": "icons/16.png",
@@ -27,5 +25,17 @@
       "19": "icons/19.png",
       "38": "icons/38.png"
     }
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.nnn.ed.nico/contents/courses/*/chapters/*/*/*"
+      ],
+      "run_at": "document_idle",
+      "js": [
+        "contentScript.js"
+      ],
+			"all_frames": true
+    }
+  ]
 }
