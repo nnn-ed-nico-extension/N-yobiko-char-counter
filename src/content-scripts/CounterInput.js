@@ -15,7 +15,7 @@ class CounterInput {
 		this.errorColor = '#f55151';
 		this.init();
 	}
-	
+
 	init () {
 		if(!this.el.querySelector(".char-counter")) {
 			this.el.appendChild(this.createCharCounterElement());
@@ -51,6 +51,7 @@ class CounterInput {
 			type: 0,
 			length: value.length
 		};
+
 		if (/(\d+)字以内/.test(text)) {
 			template.num = text.match(/([\d,]+)字以内/m)[1].replace(/,/g, '');
 			template.type = 1;
@@ -63,7 +64,7 @@ class CounterInput {
 		} else if (/(\d+)つ書/.test(text)) {
 			template.num = text.match(/([\d,]+)つ書/m)[1].replace(/,/g, '');
 			template.type = 3;
-			template.length = value.split(/[,\s\n　、。]+/).filter(v => v != '').length;
+			template.length = value.split(/[,\s\n\u3000、。]+/).filter(v => v != '').length;
 		} else if (/([\d,]+)字/.test(text)) {
 			template.num = text.match(/([\d,]+)字/m)[1].replace(/,/g, '');
 			template.length = value.length;
