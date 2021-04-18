@@ -1,3 +1,7 @@
+const git = require('git-rev-sync');
+
+process.env.VUE_APP_GIT_HASH = git.short();
+
 module.exports = {
   pages: {
     popup: {
