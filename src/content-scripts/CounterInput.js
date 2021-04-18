@@ -1,3 +1,4 @@
+const split = require('graphemesplit')
 
 /**
  * @prop {HTMLLIElement} el
@@ -49,7 +50,7 @@ class CounterInput {
 		let template = {
 			num: void 0,
 			type: 0,
-			length: value.length
+			length: split(value).length
 		};
 
 		if (/(\d+)字以内/.test(text)) {
