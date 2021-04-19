@@ -18,13 +18,13 @@ class CounterInput {
 	}
 
 	init () {
-		if(!this.el.querySelector(".char-counter")) {
+		if(!this.el.querySelector('.char-counter')) {
 			this.el.appendChild(this.createCharCounterElement());
 		}
 		this.answerElement.addEventListener('input', () => this.updateCounter());
 
 		this.updateCounter ();
-		this.el.querySelector(".char-counter").appendChild(this.disp);
+		this.el.querySelector('.char-counter').appendChild(this.disp);
 	}
 
 	updateCounter () {
@@ -37,12 +37,12 @@ class CounterInput {
 		} else if (max.type === 3) {
 			this.disp.classList.add(max.length == max.num ? 'notice' : 'error')
 		}
-		this.disp.innerText = `${max.length}${max.num != void 0?"/"+max.num:""}` ;
+		this.disp.innerText = `${max.length}${max.num != void 0?'/'+max.num:''}` ;
 	}
 
 	createCharCounterElement () {
-		const charCounter = document.createElement("div");
-		charCounter.classList.add("char-counter");
+		const charCounter = document.createElement('div');
+		charCounter.classList.add('char-counter');
 		return charCounter;
 	}
 
