@@ -1,4 +1,4 @@
-const split = require('graphemesplit')
+const split = require('graphemesplit');
 
 /**
  * @prop {HTMLLIElement} el
