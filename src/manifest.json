@@ -4,19 +4,11 @@
   "homepage_url": "https://github.com/tsutoringo/N-yobiko-char-counter",
   "description": "_MSG_extDesc",
   "default_locale": "ja",
-  "permissions": [
-    "storage"
-  ],
+  "permissions": [],
   "icons": {
     "16": "icons/16.png",
     "48": "icons/48.png",
     "128": "icons/128.png"
-  },
-  "background": {
-    "scripts": [
-      "js/background.js"
-    ],
-    "persistent": false
   },
   "browser_action": {
     "default_popup": "popup.html",
