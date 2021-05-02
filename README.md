@@ -1,4 +1,4 @@
-# <img src="public/icons/icon_48.png" width="45" align="left"> N Yobi Char-counter
+# <img src="public/icons/48.png" width="45" align="left"> N Yobi Char-counter
 
 My Chrome Extension
 
