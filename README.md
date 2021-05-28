@@ -14,3 +14,7 @@ My Chrome Extension
 ## Contribution
 
 Suggestions and pull requests are welcomed!.
+
+## Special Thanks
+Thank you so much for creating the icons!
+[@Alpha9n](https://github.com/Alpha9n)
