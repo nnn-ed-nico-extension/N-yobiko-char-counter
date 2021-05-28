@@ -1,84 +1,98 @@
 const split = require('graphemesplit');
 
 /**
- * @prop {HTMLLIElement} el
- * @prop {HTMLDivElement} disp
- * @prop {HTMLInputElement} answerElement
+ * @prop {HTMLElement} el
+ * @prop {HTMLDivElement} box
  */
 class CounterInput {
+
 	/**
-	 * @param {HTMLLIElement} el 
+	 * 
+	 * @param {String} tag Element tag
+	 * @param {String[] || String} classes Classes of element
+	 * @param {Array[]} attrs Attrs of element
+	 * @param {ElementCreationOptions} option 
+	 * @returns {HTMLElement}
+	 */
+	static createElement (tag, classes=[], attrs=[], option) {
+		const el = document.createElement(tag, option);
+
+		if (typeof classes === 'string')
+			el.classList.add(classes);
+		else
+			el.classList.add(...classes);
+
+		for (const attr of attrs) el.setAttribute(attr[0], attr[1]);
+		return el;
+	}
+
+	/**
+	 * @constructor
+	 * @param {HTMLElement} el 
 	 */
 	constructor (el) {
-		this.el = el;
-		this.disp = document.createElement('div');
-		this.safeColor = '#00c541';
-		this.errorColor = '#f55151';
-		this.init();
-	}
+		this.el      = el;
+		this.display = CounterInput.createElement('div', 'display');
+		this.input   = this.el.querySelector('.answers');
+		this.box     = this.el.querySelector('.char-counter');
 
-	init () {
-		if(!this.el.querySelector('.char-counter')) {
-			this.el.appendChild(this.createCharCounterElement());
+		if (!this.box) {
+			this.box = CounterInput.createElement('div', 'char-counter')
+			this.el.appendChild(this.box);
 		}
-		this.answerElement.addEventListener('input', () => this.updateCounter());
 
-		this.updateCounter ();
-		this.el.querySelector('.char-counter').appendChild(this.disp);
+		this.box.appendChild(this.display);
+		this.input.addEventListener('input', () => this.updateDisplay());
+		this.updateDisplay();
 	}
 
-	updateCounter () {
-		const max = this.getAnsLength(this.qustionText, this.answerElement.value);
-		this.disp.classList.remove('error', 'notice');
-		if (max.type === 1) {
-			this.disp.classList.add(max.length <= max.num ? 'notice' : 'error');
-		} else if (max.type === 2) {
-			this.disp.classList.add(((max.length <= (max.num+10)) && (max.length >= (max.num-10))) ? 'notice' : 'error');
-		} else if (max.type === 3) {
-			this.disp.classList.add(max.length == max.num ? 'notice' : 'error')
-		}
-		this.disp.innerText = `${max.length}${max.num != void 0?'/'+max.num:''}` ;
+	updateDisplay () {
+		this.display.classList.remove('error', 'notice');
+
+		const result = this.getResult(
+			this.questionText,
+			this.input.value
+		);
+
+		this.display.innerText = result.text;
+		if (result.class) this.display.classList.add(result.class);
 	}
 
-	createCharCounterElement () {
-		const charCounter = document.createElement('div');
-		charCounter.classList.add('char-counter');
-		return charCounter;
-	}
-
-	getAnsLength (text, value) {
-		let template = {
-			num: void 0,
-			type: 0,
-			length: split(value).length
+	getResult (question, answer) {
+		const ansLength = split(answer).length;
+		const result = {
+			text: ansLength,
+			class: ''
 		};
 
-		if (/(\d+)字以内/.test(text)) {
-			template.num = text.match(/([\d,]+)字以内/m)[1].replace(/,/g, '');
-			template.type = 1;
-		} else if (/([\d,]+)字程度/.test(text)) {
-			template.num = text.match(/([\d,]+)字程度/m)[1].replace(/,/g, '');
-			template.type = 2;
-		} else if (/([\d,]+)文字/.test(text)) {
-			template.num = text.match(/([\d,]+)文字/m)[1].replace(/,/g, '');
-			template.type = 3;
-		} else if (/(\d+)つ書/.test(text)) {
-			template.num = text.match(/([\d,]+)つ書/m)[1].replace(/,/g, '');
-			template.type = 3;
-			template.length = value.split(/[,\s\n\u3000、。]+/).filter(v => v != '').length;
-		} else if (/([\d,]+)字/.test(text)) {
-			template.num = text.match(/([\d,]+)字/m)[1].replace(/,/g, '');
-			template.length = value.length;
+		if (/(\d+)字以内/.test(question)) {
+			const count  = question.match(/([\d,]+)字以内/m)[1].replace(/,/g, '');
+			result.text  = `${ansLength}/${count}`;
+			result.class = ansLength <= count ? 'notice' : 'error';
+		} else if (/([\d,]+)字程度/.test(question)) {
+			const count  = parseInt(question.match(/([\d,]+)字程度/m)[1].replace(/,/g, ''));
+			const range  = count * 0.2;
+			result.text  = `${count - range}<${ansLength}<${count + range}`;
+			result.class = (((count - range) < ansLength) && (ansLength < (count + range)))
+				? 'notice' : 'error'
+		} else if (/([\d,]+)文字/.test(question)) {
+			const count = question.match(/([\d,]+)文字/m)[1].replace(/,/g, '');
+			result.text = `${ansLength}/${count}`;
+			result.class = ansLength == count ? 'notice' : 'error';
+		} else if (/([\d,]+)字/.test(question)) {
+			const count = question.match(/([\d,]+)字/m)[1].replace(/,/g, '');
+			result.text = `${ansLength}/${count}`;
+			result.class = ansLength == count ? 'notice' : 'error';
+		} else if (/(\d+)つ書/.test(question)) {
+			const count = question.match(/([\d,]+)つ書/m)[1].replace(/,/g, '');
+			const length = answer.split(/[,\s\n\u3000、。]+/).filter(v => v != '').length;
+			result.text = `${length}/${count}`;
 		}
-		if(template.num) template.num = Number(template.num);
-		return template;
-	}
 
-	get answerElement () {
-		return this.el.querySelector('.answers');
+		return result;
 	}
-
-	get qustionText () {
+	
+	get questionText () {
 		return this.el.querySelector('.question').innerHTML;
 	}
 }
