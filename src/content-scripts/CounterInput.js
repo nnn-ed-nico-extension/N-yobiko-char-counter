@@ -1,5 +1,5 @@
 const split = require('graphemesplit');
-new HTMLTextAreaElement
+
 /**
  * @prop {HTMLElement} el
  * @prop {HTMLDivElement} box
