@@ -1,7 +1,9 @@
 const split = require('graphemesplit');
-
+new HTMLTextAreaElement
 /**
  * @prop {HTMLElement} el
+ * @prop {HTMLDivElement} box
+ * @prop {HTMLInputElement|HTMLTextAreaElement} input
  * @prop {HTMLDivElement} box
  */
 class CounterInput {
@@ -11,7 +13,7 @@ class CounterInput {
 	 * @param {String} tag Element tag
 	 * @param {String[] || String} classes Classes of element
 	 * @param {Array[]} attrs Attrs of element
-	 * @param {ElementCreationOptions} option 
+	 * @param {ElementCreationOptions} [option] 
 	 * @returns {HTMLElement}
 	 */
 	static createElement (tag, classes=[], attrs=[], option) {
