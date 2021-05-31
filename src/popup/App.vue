@@ -15,7 +15,7 @@ export default {
 	name: 'App',
 	components: { VFooter },
 	mounted () {
-		new CounterInput(this.$el.querySelector('.area'))
+		new CounterInput(this.$el.querySelector('.area'));
 	}
 }
 </script>
