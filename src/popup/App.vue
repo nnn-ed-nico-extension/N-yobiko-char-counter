@@ -1,8 +1,8 @@
 <template>
 	<div id="app">
-		<div class="char-couter">
+		<div class="area">
 			<div class="question">文字数カウンタ</div>
-			<textarea class="answers"></textarea>
+			<textarea class="answers" placeholder="入力してください"></textarea>
 		</div>
 		<v-footer />
 	</div>
@@ -15,39 +15,40 @@ export default {
 	name: 'App',
 	components: { VFooter },
 	mounted () {
-		new CounterInput(this.$el.querySelector('.char-couter'))
+		new CounterInput(this.$el.querySelector('.area'))
 	}
 }
 </script>
 <style scoped>
-.char-couter {
-
+.area {
+	padding: 16px;
 }
 
-.char-couter textarea {
+textarea.answers {
+	margin-top: 13px;
+	padding: 18px;
 	width: 100%;
-	outline: none;
 	box-sizing: border-box;
+	border: solid 1px #cfcfcf;
 	resize: vertical;
-	border-radius: 0;
+	height: 200px;
 }
-.char-couter .question {
-	padding:6px;
-}
-
 </style>
 <style>
 body {
 	margin: 0;
-	color: white;
-	background-color: #8CD790;
 }
 
 a {
 	text-decoration: none;
+	color: #6486ff;
 }
 
 html {
-	width: 280px;
+	width: 400px;
+}
+
+.area .display {
+	text-align: right;
 }
 </style>
