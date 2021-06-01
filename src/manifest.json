@@ -21,9 +21,10 @@
   "content_scripts": [
     {
       "matches": [
-        "https://www.nnn.ed.nico/contents/courses/*/chapters/*/*/*"
+        "https://www.nnn.ed.nico/contents/courses/*/chapters/*/*/*",
+        "https://www.nnn.ed.nico/contents/courses/*/chapters/*/*"
       ],
-      "run_at": "document_idle",
+      "run_at": "document_end",
       "js": [
         "js/content-script.js"
       ],
