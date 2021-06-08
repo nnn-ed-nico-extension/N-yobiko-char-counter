@@ -4,7 +4,6 @@ const split = require('graphemesplit');
  * @prop {HTMLElement} el
  * @prop {HTMLDivElement} box
  * @prop {HTMLInputElement|HTMLTextAreaElement} input
- * @prop {HTMLDivElement} box
  */
 class CounterInput {
 
