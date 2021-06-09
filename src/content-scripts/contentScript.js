@@ -1,11 +1,12 @@
 import CounterInput from './CounterInput';
 import * as petterns from './petterns';
 
-CounterInput.addPettern(petterns.within);
-CounterInput.addPettern(petterns.about);
-CounterInput.addPettern(petterns.just);
-CounterInput.addPettern(petterns.listing);
-CounterInput.addPettern(petterns.fallback);
+CounterInput
+	.addPettern(petterns.within)
+	.addPettern(petterns.about)
+	.addPettern(petterns.just)
+	.addPettern(petterns.listing)
+	.addPettern(petterns.fallback);
 
 setTimeout(() => {
 	const fields = document.querySelectorAll(".section-item .exercise-item.type-descriptive");
