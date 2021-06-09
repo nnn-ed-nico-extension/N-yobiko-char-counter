@@ -1,3 +1,5 @@
+import createElement from './util/createElement';
+
 /**
  * @prop {HTMLElement} el
  * @prop {HTMLDivElement} box
@@ -6,26 +8,6 @@
 class CounterInput {
 
 	static petterns = new Map();
-
-	/**
-	 * 
-	 * @param {String} tag Element tag
-	 * @param {String[] || String} classes Classes of element
-	 * @param {Array[]} attrs Attrs of element
-	 * @param {ElementCreationOptions} [option] 
-	 * @returns {HTMLElement}
-	 */
-	static createElement (tag, classes=[], attrs=[], option) {
-		const el = document.createElement(tag, option);
-
-		if (typeof classes === 'string')
-			el.classList.add(classes);
-		else
-			el.classList.add(...classes);
-
-		for (const attr of attrs) el.setAttribute(attr[0], attr[1]);
-		return el;
-	}
 
 	static addPettern (counter) {
 		if (!counter.name) throw new Error('Couter name is not defined');
@@ -41,13 +23,13 @@ class CounterInput {
 	 */
 	constructor (el) {
 		this.el      = el;
-		this.display = CounterInput.createElement('div', 'display');
+		this.display = createElement('div', 'display');
 		this.input   = this.el.querySelector('.answers');
 		this.box     = this.el.querySelector('.char-counter');
 		this.counter = 'fallback';
 
 		if (!this.box) {
-			this.box = CounterInput.createElement('div', 'char-counter')
+			this.box = createElement('div', 'char-counter')
 			this.el.appendChild(this.box);
 		}
 
