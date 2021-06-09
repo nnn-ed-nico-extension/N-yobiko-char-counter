@@ -1,5 +1,3 @@
-const split = require('graphemesplit');
-
 /**
  * @prop {HTMLElement} el
  * @prop {HTMLDivElement} box
@@ -34,6 +32,7 @@ class CounterInput {
 		if (!counter.reg) throw new Error('No RegExp');
 		if (typeof counter.count !== 'function') throw new Error(`counter.count is must be function. but got '${typeof counter.count}'`);
 		this.petterns.set(counter.name, counter);
+		return this;
 	}
 
 	/**
