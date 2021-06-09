@@ -17,7 +17,7 @@ export const just = new Pettern({
     reg: /([\d,]+)文?字/m,
     count (q, a) {
         const length = q.match(this.reg)[1].replace(/,/g, '');
-        const count = split(a).length
+        const count = split(a).length;
         return {
             text: `${count}/${length}`,
             class: count == length ? 'notice' : 'error'
