@@ -7,6 +7,8 @@ const split = require('graphemesplit');
  */
 class CounterInput {
 
+	static petterns = new Map();
+
 	/**
 	 * 
 	 * @param {String} tag Element tag
@@ -27,6 +29,13 @@ class CounterInput {
 		return el;
 	}
 
+	static addPettern (counter) {
+		if (!counter.name) throw new Error('Couter name is not defined');
+		if (!counter.reg) throw new Error('No RegExp');
+		if (typeof counter.count !== 'function') throw new Error(`counter.count is must be function. but got '${typeof counter.count}'`);
+		this.petterns.set(counter.name, counter);
+	}
+
 	/**
 	 * @constructor
 	 * @param {HTMLElement} el 
@@ -36,10 +45,21 @@ class CounterInput {
 		this.display = CounterInput.createElement('div', 'display');
 		this.input   = this.el.querySelector('.answers');
 		this.box     = this.el.querySelector('.char-counter');
+		this.counter = 'fallback';
 
 		if (!this.box) {
 			this.box = CounterInput.createElement('div', 'char-counter')
 			this.el.appendChild(this.box);
+		}
+
+		const q = this.questionText;
+
+		for (const key of CounterInput.petterns.keys()) {
+			const pettern = CounterInput.petterns.get(key);
+			if (pettern.reg.test(q)) {
+				this.pettern = key;
+				break;
+			}
 		}
 
 		this.box.appendChild(this.display);
@@ -50,7 +70,7 @@ class CounterInput {
 	updateDisplay () {
 		this.display.classList.remove('error', 'notice');
 
-		const result = this.getResult(
+		const result = CounterInput.petterns.get(this.pettern).count(
 			this.questionText,
 			this.input.value
 		);
@@ -59,40 +79,6 @@ class CounterInput {
 		if (result.class) this.display.classList.add(result.class);
 	}
 
-	getResult (question, answer) {
-		const ansLength = split(answer).length;
-		const result = {
-			text: ansLength,
-			class: ''
-		};
-
-		if (/(\d+)字以内/.test(question)) {
-			const count  = question.match(/([\d,]+)字以内/m)[1].replace(/,/g, '');
-			result.text  = `${ansLength}/${count}`;
-			result.class = ansLength <= count ? 'notice' : 'error';
-		} else if (/([\d,]+)字程度/.test(question)) {
-			const count  = parseInt(question.match(/([\d,]+)字程度/m)[1].replace(/,/g, ''));
-			const range  = count * 0.2;
-			result.text  = `${count - range}<${ansLength}<${count + range}`;
-			result.class = (((count - range) < ansLength) && (ansLength < (count + range)))
-				? 'notice' : 'error'
-		} else if (/([\d,]+)文字/.test(question)) {
-			const count = question.match(/([\d,]+)文字/m)[1].replace(/,/g, '');
-			result.text = `${ansLength}/${count}`;
-			result.class = ansLength == count ? 'notice' : 'error';
-		} else if (/([\d,]+)字/.test(question)) {
-			const count = question.match(/([\d,]+)字/m)[1].replace(/,/g, '');
-			result.text = `${ansLength}/${count}`;
-			result.class = ansLength == count ? 'notice' : 'error';
-		} else if (/(\d+)つ書/.test(question)) {
-			const count = question.match(/([\d,]+)つ書/m)[1].replace(/,/g, '');
-			const length = answer.split(/[,\s\n\u3000、。]+/).filter(v => v != '').length;
-			result.text = `${length}/${count}`;
-		}
-
-		return result;
-	}
-	
 	get questionText () {
 		return this.el.querySelector('.question').innerHTML;
 	}
