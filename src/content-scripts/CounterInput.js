@@ -29,7 +29,7 @@ class CounterInput {
 		this.counter = 'fallback';
 
 		if (!this.box) {
-			this.box = createElement('div', 'char-counter')
+			this.box = createElement('div', 'char-counter');
 			this.el.appendChild(this.box);
 		}
 
