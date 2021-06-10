@@ -16,4 +16,4 @@ export default function (tag, classes=[], attrs=[], option) {
 
     for (const attr of attrs) el.setAttribute(attr[0], attr[1]);
     return el;
-};
+}

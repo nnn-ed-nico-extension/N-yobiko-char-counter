@@ -13,6 +13,7 @@ class CounterInput {
 		if (!counter.name) throw new Error('Couter name is not defined');
 		if (!counter.reg) throw new Error('No RegExp');
 		if (typeof counter.count !== 'function') throw new Error(`counter.count is must be function. but got '${typeof counter.count}'`);
+
 		this.petterns.set(counter.name, counter);
 		return this;
 	}
