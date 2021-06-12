@@ -1,4 +1,5 @@
 import createElement from './util/createElement';
+import Pettern from './Pettern';
 
 /**
  * @prop {HTMLElement} el
@@ -9,12 +10,13 @@ class CounterInput {
 
 	static petterns = new Map();
 
-	static addPettern (counter) {
-		if (!counter.name) throw new Error('Couter name is not defined');
-		if (!counter.reg) throw new Error('No RegExp');
-		if (typeof counter.count !== 'function') throw new Error(`counter.count is must be function. but got '${typeof counter.count}'`);
+	static addPettern (pettern) {
+		if (!(pettern instanceof Pettern)) {
+			this.addPettern(new Pettern(pettern));
+			return;
+		}
 
-		this.petterns.set(counter.name, counter);
+		this.petterns.set(pettern.name, pettern);
 		return this;
 	}
 
