@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
 		<div class="area">
-			<div class="question">文字数カウンタ</div>
+			<div class="question">{{extName}}</div>
 			<textarea class="answers" placeholder="入力してください"></textarea>
 		</div>
 		<v-footer />
@@ -16,6 +16,9 @@ export default {
 	components: { VFooter },
 	mounted () {
 		new CounterInput(this.$el.querySelector('.area'));
+	},
+	computed: {
+		extName: () => browser.i18n.getMessage('extName')
 	}
 }
 </script>
