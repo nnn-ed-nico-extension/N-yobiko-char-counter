@@ -2,11 +2,11 @@ import CounterInput from './CounterInput';
 import * as petterns from './petterns';
 
 CounterInput
-	.pettern(petterns.within)
-	.pettern(petterns.about)
-	.pettern(petterns.just)
-	.pettern(petterns.listing)
-	.pettern(petterns.fallback);
+	.addPettern(petterns.within)
+	.addPettern(petterns.about)
+	.addPettern(petterns.just)
+	.addPettern(petterns.listing)
+	.addPettern(petterns.fallback);
 
 setTimeout(() => {
 	const fields = document.querySelectorAll(".section-item .exercise-item.type-descriptive");

@@ -866,30 +866,6 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@fortawesome/fontawesome-common-types@^0.2.35":
-  version "0.2.35"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.35.tgz#01dd3d054da07a00b764d78748df20daf2b317e9"
-  integrity sha512-IHUfxSEDS9dDGqYwIW7wTN6tn/O8E0n5PcAHz9cAaBoZw6UpG20IG/YM3NNLaGPwPqgjBAFjIURzqoQs3rrtuw==
-
-"@fortawesome/fontawesome-svg-core@^1.2.35":
-  version "1.2.35"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.35.tgz#85aea8c25645fcec88d35f2eb1045c38d3e65cff"
-  integrity sha512-uLEXifXIL7hnh2sNZQrIJWNol7cTVIzwI+4qcBIq9QWaZqUblm0IDrtSqbNg+3SQf8SMGHkiSigD++rHmCHjBg==
-  dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.35"
-
-"@fortawesome/free-solid-svg-icons@^5.15.3":
-  version "5.15.3"
-  resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.15.3.tgz#52eebe354f60dc77e0bde934ffc5c75ffd04f9d8"
-  integrity sha512-XPeeu1IlGYqz4VWGRAT5ukNMd4VHUEEJ7ysZ7pSSgaEtNvSo+FLurybGJVmiqkQdK50OkSja2bfZXOeyMGRD8Q==
-  dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.35"
-
-"@fortawesome/vue-fontawesome@^2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@fortawesome/vue-fontawesome/-/vue-fontawesome-2.0.2.tgz#5b86cd2fb7b4c17e5dede722c1c2855c97eceaea"
-  integrity sha512-ecpKSBUWXsxRJVi/dbOds4tkKwEcBQ1JSDZFzE2jTFpF8xIh3OgTX8POIor6bOltjibr3cdEyvnDjecMwUmxhQ==
-
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"
@@ -6297,9 +6273,9 @@ octicons-modular@^1.0.7:
   integrity sha512-90ZEWv3cVNT0CjApsKrGIbynu+BG8Ou0RrG3Q3ntHzvzCs9fasxH1EikN37Ff1b80+nyCuD02g1I0gIHCfVBUQ==
 
 octicons-vue@^1.0.7:
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/octicons-vue/-/octicons-vue-1.0.10.tgz#c4f595e1fd2af8251c706c76ccab9dd8bfdf30d2"
-  integrity sha512-5u4QlBhyxXNoJjdO4s3KVy7ufEGgpVls/ados1q+2h/h2ONSqmEwzJWbg1tbTlhxhJ5L1qG9FQJXW3XTVr8e/w==
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/octicons-vue/-/octicons-vue-1.0.7.tgz#2bd18d4d757657c658132830185f45dd47d8ec5b"
+  integrity sha512-k0zL3tj67HA2E0vJPHwNUgLOdC781Wh+YO7jTmHwsJDh+bBeJDgPwUvH2oMZGX0iE81h/ESkEdTWt383zqSOtA==
   dependencies:
     octicons-modular "^1.0.7"
 

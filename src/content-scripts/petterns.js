@@ -30,11 +30,11 @@ export const about = new Pettern({
     reg: /([\d,]+)字程度/m,
     count (q, a) {
         const length  = parseInt(q.match(this.reg)[1].replace(/,/g, ''));
-		const range  = Math.round(length * 0.2);
+		const range  = length * 0.2;
         const count = split(a).length;
         return {
-            text:  `${count} (${length - range}~${length + range})`,
-            class: (((length - range) <= count) && (count <= (length + range)))
+            text:  `${length - range}<${count}<${length + range}`,
+            class: (((length - range) < count) && (count < (length + range)))
 			? 'notice' : 'error'
         };
     }
