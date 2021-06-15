@@ -10,9 +10,14 @@ class CounterInput {
 
 	static petterns = new Map();
 
-	static addPettern (pettern) {
+	/**
+	 * Add detecct pattern
+	 * @param {Pettern} pettern
+	 * @returns {Classs<CounterInput}
+	 */
+	static pettern (pettern) {
 		if (!(pettern instanceof Pettern)) {
-			this.addPettern(new Pettern(pettern));
+			this.pettern(new Pettern(pettern));
 			return;
 		}
 
@@ -36,6 +41,14 @@ class CounterInput {
 			this.el.appendChild(this.box);
 		}
 
+		this.detectPettern();
+
+		this.box.appendChild(this.display);
+		this.input.addEventListener('input', () => this.updateDisplay());
+		this.updateDisplay();
+	}
+
+	detectPettern () {
 		const q = this.questionText;
 
 		for (const key of CounterInput.petterns.keys()) {
@@ -45,14 +58,11 @@ class CounterInput {
 				break;
 			}
 		}
-
-		this.box.appendChild(this.display);
-		this.input.addEventListener('input', () => this.updateDisplay());
-		this.updateDisplay();
 	}
 
 	updateDisplay () {
 		this.display.classList.remove('error', 'notice');
+		this.detectPettern();
 
 		const result = CounterInput.petterns.get(this.pettern).count(
 			this.questionText,

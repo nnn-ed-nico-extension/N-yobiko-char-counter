@@ -1,6 +1,7 @@
 const git = require('git-rev-sync');
 
 process.env.VUE_APP_GIT_HASH = git.short();
+process.env.VUE_APP_GIT_BRANCH = git.branch();
 
 module.exports = {
   pages: {

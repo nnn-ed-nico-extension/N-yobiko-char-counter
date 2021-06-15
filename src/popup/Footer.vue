@@ -6,8 +6,10 @@
 				<a href="https://github.com/tsutoringo/N-yobiko-char-counter" target="_blank">N-yobiko-char-counter</a>
 			</span>@<span class="commit-hash"><a :href="`https://github.com/tsutoringo/N-yobiko-char-counter/commit/${commitHash}`" target="_blank">{{commitHash}}</a></span>
 		</div>
-		<div class="buy-me-a-coffee">
-			<a href="https://ko-fi.com/tsutoringo" target="_blank">Buy me a coffee</a>
+		<div class="left">
+			<div>
+				<router-link to="/info"><fa-icon icon="info-circle"></fa-icon>情報</router-link>
+			</div>
 		</div>
 	</footer>
 </template>
@@ -40,7 +42,7 @@ footer>.git>* {
 	margin: 0 3px;
 }
 
-.buy-me-a-coffee {
+.left {
 	margin-left: auto;
 }
 </style>
