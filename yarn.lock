@@ -6297,9 +6297,9 @@ octicons-modular@^1.0.7:
   integrity sha512-90ZEWv3cVNT0CjApsKrGIbynu+BG8Ou0RrG3Q3ntHzvzCs9fasxH1EikN37Ff1b80+nyCuD02g1I0gIHCfVBUQ==
 
 octicons-vue@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/octicons-vue/-/octicons-vue-1.0.7.tgz#2bd18d4d757657c658132830185f45dd47d8ec5b"
-  integrity sha512-k0zL3tj67HA2E0vJPHwNUgLOdC781Wh+YO7jTmHwsJDh+bBeJDgPwUvH2oMZGX0iE81h/ESkEdTWt383zqSOtA==
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/octicons-vue/-/octicons-vue-1.0.10.tgz#c4f595e1fd2af8251c706c76ccab9dd8bfdf30d2"
+  integrity sha512-5u4QlBhyxXNoJjdO4s3KVy7ufEGgpVls/ados1q+2h/h2ONSqmEwzJWbg1tbTlhxhJ5L1qG9FQJXW3XTVr8e/w==
   dependencies:
     octicons-modular "^1.0.7"
 
