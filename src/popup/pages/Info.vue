@@ -22,7 +22,7 @@
 				</div>
 				<div class="summary">
 					{{extName}} (v{{extVersion}})<br>
-					<a href="https://github.com/tsutoringo/N-yobiko-char-counter" target="_blank">N-yobiko-char-counter</a> (<a :href="`https://github.com/tsutoringo/N-yobiko-char-counter/commit/${gitHash}`" target="_blank">{{gitHash}}</a>/<a :href="`https://github.com/tsutoringo/N-yobiko-char-counter/tree/${gitBranch}`" target="_blank">{{gitBranch}}</a>)
+					<a href="https://github.com/nnn-ed-nico-extension/N-yobiko-char-counter" target="_blank">N-yobiko-char-counter</a> (<a :href="`https://github.com/nnn-ed-nico-extension/N-yobiko-char-counter/commit/${gitHash}`" target="_blank">{{gitHash}}</a>/<a :href="`https://github.com/nnn-ed-nico-extension/N-yobiko-char-counter/tree/${gitBranch}`" target="_blank">{{gitBranch}}</a>)
 				</div>
 			</section>
 			<div class="separator"></div>

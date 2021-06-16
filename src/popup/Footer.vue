@@ -3,8 +3,8 @@
 		<div class="git">
 			<octicon :icon="gitBranch" class="icon"/>
 			<span class="repository">
-				<a href="https://github.com/tsutoringo/N-yobiko-char-counter" target="_blank">N-yobiko-char-counter</a>
-			</span>@<span class="commit-hash"><a :href="`https://github.com/tsutoringo/N-yobiko-char-counter/commit/${commitHash}`" target="_blank">{{commitHash}}</a></span>
+				<a href="https://github.com/nnn-ed-nico-extension/N-yobiko-char-counter" target="_blank">N-yobiko-char-counter</a>
+			</span>@<span class="commit-hash"><a :href="`https://github.com/nnn-ed-nico-extension/N-yobiko-char-counter/commit/${commitHash}`" target="_blank">{{commitHash}}</a></span>
 		</div>
 		<div class="left">
 			<div>
