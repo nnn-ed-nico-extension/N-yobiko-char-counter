@@ -22,7 +22,7 @@
 				</div>
 				<div class="summary">
 					{{extName}} (v{{extVersion}})<br>
-					<a href="https://github.com/nnn-ed-nico-extension/N-yobiko-char-counter" target="_blank">N-yobiko-char-counter</a> (<a :href="`https://github.com/nnn-ed-nico-extension/N-yobiko-char-counter/commit/${gitHash}`" target="_blank">{{gitHash}}</a>/<a :href="`https://github.com/nnn-ed-nico-extension/N-yobiko-char-counter/tree/${gitBranch}`" target="_blank">{{gitBranch}}</a>)
+					<a :href="baseURL" target="_blank">N-yobiko-char-counter</a> (<a :href="`${baseURL}/commit/${gitHash}`" target="_blank">{{gitHash}}</a>/<a :href="`${baseURL}/tree/${gitBranch}`" target="_blank">{{gitBranch}}</a>)
 				</div>
 			</section>
 			<div class="separator"></div>
@@ -64,7 +64,8 @@ export default {
 		extVersion() { return this.manifest.version },
 		extID: () => browser.app.getDetails().id,
 		gitBranch: () => process.env.VUE_APP_GIT_BRANCH,
-		gitHash: () => process.env.VUE_APP_GIT_HASH
+		gitHash: () => process.env.VUE_APP_GIT_HASH,
+		baseURL: () => process.env.VUE_APP_HOMEPAGE
 	}
 }
 </script>
