@@ -3,8 +3,8 @@
 		<div class="git">
 			<octicon :icon="gitBranch" class="icon"/>
 			<span class="repository">
-				<a href="https://github.com/nnn-ed-nico-extension/N-yobiko-char-counter" target="_blank">N-yobiko-char-counter</a>
-			</span>@<span class="commit-hash"><a :href="`https://github.com/nnn-ed-nico-extension/N-yobiko-char-counter/commit/${commitHash}`" target="_blank">{{commitHash}}</a></span>
+				<a :href="baseURL" target="_blank">N-yobiko-char-counter</a>
+			</span>@<span class="commit-hash"><a :href="`${baseURL}/commit/${commitHash}`" target="_blank">{{commitHash}}</a></span>
 		</div>
 		<div class="left">
 			<div>
@@ -22,9 +22,8 @@ export default {
 		gitBranch
 	}),
 	computed: {
-		commitHash () {
-			return process.env.VUE_APP_GIT_HASH;
-		}
+		commitHash: () => process.env.VUE_APP_GIT_HASH,
+		baseURL: () => process.env.VUE_APP_HOMEPAGE
 	}
 }
 </script>
