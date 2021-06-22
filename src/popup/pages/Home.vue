@@ -50,10 +50,6 @@ a {
 	color: #6486ff;
 }
 
-html {
-	width: 400px;
-}
-
 .area .display {
 	text-align: right;
 }

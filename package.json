@@ -1,7 +1,8 @@
 {
   "name": "n-yobi-char-counter",
-  "version": "4.2.0",
+  "version": "4.2.1",
   "private": true,
+  "author": "tsutoringo (https://github.com/tsutoringo/)",
   "scripts": {
     "serve": "vue-cli-service build --mode development --watch",
     "build": "vue-cli-service build",
@@ -43,5 +44,14 @@
     "webpack-merge": "^5.2.0"
   },
   "_id": "n-yobi-char-counter@0.1.0",
-  "readme": "ERROR: No README data found!"
+  "readme": "ERROR: No README data found!",
+  "license": "MIT",
+  "homepage": "https://github.com/nnn-ed-nico-extension/N-yobiko-char-counter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nnn-ed-nico-extension/N-yobiko-char-counter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nnn-ed-nico-extension/N-yobiko-char-counter/issues"
+  }
 }
