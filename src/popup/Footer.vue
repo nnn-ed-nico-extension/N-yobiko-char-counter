@@ -19,12 +19,7 @@ import { gitBranch } from 'octicons-vue';
 export default {
 	name: 'VFooter',
 	data: () => ({
-		gitBranch
-	}),
-	computed: {
-		commitHash: () => process.env.VUE_APP_GIT_HASH,
-		baseURL: () => process.env.VUE_APP_HOMEPAGE
-	}
+	})
 }
 </script>
 <style scoped>

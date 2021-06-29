@@ -7,12 +7,16 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faArrowLeft, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
+import mixin from './mixin';
+
 library.add(faArrowLeft, faInfoCircle);
 
 Vue.component('fa-icon', FontAwesomeIcon);
 
 
 Vue.component('octicon', Octicon);
+
+Vue.mixin(mixin);
 
 /* eslint-disable no-new */
 new Vue({
