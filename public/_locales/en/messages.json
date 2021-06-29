@@ -1,8 +1,8 @@
 {
   "extName": {
-    "message": "n-yobi-char-counter"
+    "message": "Char counter for N予備校"
   },
   "extDesc": {
-		"message": "Show the number of letters in the test at N yobiko."
+		"message": "Show the number of letters in the test at N予備校."
 	}
 }
