@@ -1,30 +1,29 @@
 <template>
 	<footer>
 		<div class="git">
-			<octicon :icon="gitBranch" class="icon"/>
+			<octicon :icon="iGitBranch" class="icon"/>
 			<span class="repository">
 				<a :href="baseURL" target="_blank">N-yobiko-char-counter</a>
 			</span>@<span class="commit-hash"><a :href="`${baseURL}/commit/${commitHash}`" target="_blank">{{commitHash}}</a></span>
 		</div>
 		<div class="left">
 			<div>
-				<router-link to="/info"><fa-icon icon="info-circle"></fa-icon>情報</router-link>
+				<router-link to="/info">
+					<fa-icon icon="info-circle" />
+					{{extName}}について
+				</router-link>
 			</div>
 		</div>
 	</footer>
 </template>
 <script>
-import { gitBranch } from 'octicons-vue';
+import { gitBranch as iGitBranch } from 'octicons-vue';
 
 export default {
 	name: 'VFooter',
 	data: () => ({
-		gitBranch
-	}),
-	computed: {
-		commitHash: () => process.env.VUE_APP_GIT_HASH,
-		baseURL: () => process.env.VUE_APP_HOMEPAGE
-	}
+		iGitBranch
+	})
 }
 </script>
 <style scoped>
