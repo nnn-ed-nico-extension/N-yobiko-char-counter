@@ -19,9 +19,6 @@ export default {
 	components: { VFooter },
 	mounted () {
 		new CounterInput(this.$el.querySelector('.area'));
-	},
-	computed: {
-		extName: () => browser.i18n.getMessage('extName')
 	}
 }
 </script>

@@ -14,7 +14,7 @@ module.exports = {
   },
   pluginOptions: {
     browserExtension: {
-      manifestTransformer: (manifest) => {
+      manifestTransformer: manifest => {
         manifest.homepage_url = process.env.VUE_APP_HOMEPAGE;
         return manifest;
       },      

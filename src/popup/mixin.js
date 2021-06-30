@@ -7,6 +7,6 @@ export default {
 		extVersion() { return this.manifest.version },
 		extID: () => browser.app.getDetails().id,
 		gitBranch: () => process.env.VUE_APP_GIT_BRANCH,
-		gitHash: () => process.env.VUE_APP_GIT_HASH,
+		gitHash: () => process.env.VUE_APP_GIT_HASH
     }
 }
