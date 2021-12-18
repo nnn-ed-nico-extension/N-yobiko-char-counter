@@ -1,3 +1,6 @@
+# Note - 開発停止
+機能追加のリクエストがない限りこのプロジェクトを開発することは有りません
+
 # <img src="public/icons/48.png" width="45" align="left"> N Yobi Char-counter
 
 ## Features
